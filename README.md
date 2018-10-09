@@ -9,12 +9,12 @@ docker run --rm -it --name ebx-5.8.1.1067-0027 ebx-dataonly:5.8.1.1067-0027 /bin
 
 ## upload
 
-see https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html
+see https://docs.docker.com/docker-cloud/builds/push-images/
 
 ```
-$(aws ecr get-login --no-include-email)
-docker tag ebx-dataonly:5.8.1.1067-0027 316054198708.dkr.ecr.us-east-1.amazonaws.com/ebx:5.8.1.1067-0027
-docker push 316054198708.dkr.ecr.us-east-1.amazonaws.com/ebx:5.8.1.1067-0027
+docker login
+docker tag ebx-dataonly:5.8.1.1067-0027 mickaelgermemont/ebx:5.8.1.1067-0027
+docker push mickaelgermemont/ebx:5.8.1.1067-0027
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ docker push 316054198708.dkr.ecr.us-east-1.amazonaws.com/ebx:5.8.1.1067-0027
 ### 1 download
 
 ```
-docker pull 316054198708.dkr.ecr.us-east-1.amazonaws.com/ebx:5.8.1.1067-0027
+docker pull mickaelgermemont/ebx:5.8.1.1067-0027
 ```
 
 ### 2 within another Dockerfile you can copy the ebx files
@@ -36,7 +36,7 @@ ebx also required libs, see ```/data/ebx/libs```
 for example
 
 ```
-COPY --from 316054198708.dkr.ecr.us-east-1.amazonaws.com/ebx:5.8.1.1067-0027 /data/ebx/ebx.software/lib/ebx.jar $CATALINA_HOME/lib/
+COPY --from mickaelgermemont/ebx:5.8.1.1067-0027 /data/ebx/ebx.software/lib/ebx.jar $CATALINA_HOME/lib/
 
-COPY --from 316054198708.dkr.ecr.us-east-1.amazonaws.com/ebx:5.8.1.1067-0027 /data/ebx/ebx.software/webapps/wars-packaging/ebx.war $CATALINA_HOME/webapps/
+COPY --from mickaelgermemont/ebx:5.8.1.1067-0027 /data/ebx/ebx.software/webapps/wars-packaging/ebx.war $CATALINA_HOME/webapps/
 ```

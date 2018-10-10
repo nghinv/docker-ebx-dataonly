@@ -2,7 +2,7 @@ FROM tomcat:9.0.12-jre11
 
 # docker build -t ebx-dataonly:5.8.1.1067-0027 .
 # docker run --rm -it --name ebx-5.8.1.1067-0027 ebx-dataonly:5.8.1.1067-0027 /bin/bash
-# docker run --rm -it amazonlinux:2018.03 /bin/bash
+# docker run --rm -it tomcat:9.0.12-jre11 /bin/bash
 
 ENV EBX_DL_USER support
 ENV EBX_DL_PASSWORD on@ebx67

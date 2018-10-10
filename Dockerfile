@@ -29,12 +29,3 @@ RUN mkdir -p /data/ebx/libs/ \
   && wget -P /data/ebx/libs/ http://central.maven.org/maven2/com/h2database/h2/1.4.197/h2-1.4.197.jar \
   && wget -P /data/ebx/libs/ http://central.maven.org/maven2/javax/xml/ws/jaxws-api/2.3.0/jaxws-api-2.3.0.jar \
   && wget -P /data/ebx/libs/ http://central.maven.org/maven2/javax/xml/soap/javax.xml.soap-api/1.4.0/javax.xml.soap-api-1.4.0.jar
-
-# COPY third_party_libs/java11/*.jar /data/ebx/libs/
-# COPY third_party_libs/*.jar /data/ebx/libs/
-
-# https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html
-# docker tag ebx-dataonly:5.8.1.1067-0027 316054198708.dkr.ecr.us-east-1.amazonaws.com/ebx:5.8.1.1067-0027
-# docker push 316054198708.dkr.ecr.us-east-1.amazonaws.com/ebx:5.8.1.1067-0027
-# denied: Your Authorization Token has expired. Please run 'aws ecr get-login --no-include-email' to fetch a new one.
-# $(aws ecr get-login --no-include-email)

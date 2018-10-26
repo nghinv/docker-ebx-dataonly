@@ -1,12 +1,13 @@
 FROM tomcat:9.0.12-jre11
 
-# docker build -t ebx-dataonly:5.8.1.1067-0027 .
-# docker run --rm -it --name ebx-5.8.1.1067-0027 ebx-dataonly:5.8.1.1067-0027 /bin/bash
+# https://dl.orchestranetworks.com/restricted/download/ebx_CD_5.9.0.1098.zip
+# docker build -t ebx-dataonly:5.9.0.1098 .
+# docker run --rm -it --name ebx-5.9.0.1098 ebx-dataonly:5.9.0.1098 /bin/bash
 # docker run --rm -it tomcat:9.0.12-jre11 /bin/bash
 
 ENV EBX_DL_USER support
 ENV EBX_DL_PASSWORD on@ebx67
-ENV EBX_VERSION ebx_CD_5.8.1.1067-0027
+ENV EBX_VERSION ebx_CD_5.9.0.1098
 
 ###
 ### download EBX

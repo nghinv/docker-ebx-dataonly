@@ -5,6 +5,8 @@
 ```
 docker build -t ebx-dataonly:5.9.0.1098 .
 docker run --rm -it --name ebx-5.9.0.1098 ebx-dataonly:5.9.0.1098 /bin/bash
+
+docker run --rm -it --name ebx-5.9.0.1098 mickaelgermemont/ebx:5.9.0.1098 /bin/bash
 ```
 
 ## upload
@@ -39,4 +41,18 @@ for example
 COPY --from mickaelgermemont/ebx:5.9.0.1098 /data/ebx/ebx.software/lib/ebx.jar $CATALINA_HOME/lib/
 
 COPY --from mickaelgermemont/ebx:5.9.0.1098 /data/ebx/ebx.software/webapps/wars-packaging/ebx.war $CATALINA_HOME/webapps/
+```
+
+```
+mkdir -p ~/5.9.0.1098 ~/5.9.0.1098/addons/lib ~/5.9.0.1098/addons/wars
+docker run --rm -it --name ebx-5.9.0.1098 mickaelgermemont/ebx:5.9.0.1098 /bin/bash
+docker cp ebx-5.9.0.1098:/data/ebx/ebx.software/lib/ebx.jar ~/5.9.0.1098
+docker cp ebx-5.9.0.1098:/data/ebx/ebx.software/webapps/wars-packaging ~/5.9.0.1098
+
+ls -altr ~/5.9.0.1098
+```
+
+
+```
+docker cp ebx-5.9.0.1098:/data/ebx/ebx.software/files/ebx.properties .
 ```

@@ -3,7 +3,7 @@
 ## build docker image
 
 ```
-docker build -t ebx-dataonly:5.8.1.1067-0029 .
+docker build --build-arg EBX_VERSION=5.8.1.1067-0029 -t ebx-dataonly:5.8.1.1067-0029 .
 docker run --rm -it --name ebx-5.8.1.1067-0029 ebx-dataonly:5.8.1.1067-0029 /bin/bash
 
 docker run --rm -it --name ebx-5.8.1.1067-0029 mickaelgermemont/ebx:5.8.1.1067-0029 /bin/bash
@@ -38,9 +38,9 @@ ebx also required libs, see ```/data/ebx/libs```
 for example
 
 ```
-COPY --from mickaelgermemont/ebx:5.8.1.1067-0029 /data/ebx/ebx.software/lib/ebx.jar $CATALINA_HOME/lib/
+COPY --from=mickaelgermemont/ebx:5.8.1.1067-0029 /data/ebx/ebx.software/lib/ebx.jar $CATALINA_HOME/lib/
 
-COPY --from mickaelgermemont/ebx:5.8.1.1067-0029 /data/ebx/ebx.software/webapps/wars-packaging/ebx.war $CATALINA_HOME/webapps/
+COPY --from=mickaelgermemont/ebx:5.8.1.1067-0029 /data/ebx/ebx.software/webapps/wars-packaging/ebx.war $CATALINA_HOME/webapps/
 ```
 
 ```

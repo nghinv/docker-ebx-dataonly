@@ -2,7 +2,7 @@ FROM tomcat:9.0.12-jre11
 
 ENV EBX_DL_USER support
 ENV EBX_DL_PASSWORD on@ebx67
-ENV EBX_VERSION ebx_CD_5.8.1.1067-0029
+ARG EBX_VERSION
 
 ###
 ### download EBX

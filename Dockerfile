@@ -1,4 +1,5 @@
 FROM tomcat:9.0.12-jre11
+ARG EBXFILE
 
 # https://dl.orchestranetworks.com/restricted/download/ebx_CD_5.9.0.1098.zip
 # docker build -t ebx-dataonly:5.9.0.1098 .
@@ -7,13 +8,13 @@ FROM tomcat:9.0.12-jre11
 
 ENV EBX_DL_USER support
 ENV EBX_DL_PASSWORD on@ebx67
-ENV EBX_VERSION ebx_CD_5.9.0.1098
+#ENV EBXVERSION ebx_CD_5.9.0.1098
 
 ###
 ### download EBX
 
 RUN mkdir -p /data/ebx \
-  && curl -k -SL -u "${EBX_DL_USER}:${EBX_DL_PASSWORD}" -o /data/ebx/ebx.zip https://dl.orchestranetworks.com/restricted/download/${EBX_VERSION}.zip \
+  && curl -k -SL -u "${EBX_DL_USER}:${EBX_DL_PASSWORD}" -o /data/ebx/ebx.zip https://dl.orchestranetworks.com/restricted/download/${EBXFILE} \
   && unzip -q -d /data/ebx/ /data/ebx/ebx.zip \
   && rm -rf /data/ebx/ebx.zip
 

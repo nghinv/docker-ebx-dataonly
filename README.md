@@ -3,7 +3,7 @@
 ## build docker image
 
 ```
-docker build --build-arg EBX_VERSION=5.8.1.1067-0029 -t ebx-dataonly:5.8.1.1067-0029 .
+docker build --build-arg EBXFILE=ebx_CD_5.8.1.1067-0029.zip -t ebx-dataonly:5.8.1.1067-0029 .
 docker run --rm -it --name ebx-5.8.1.1067-0029 ebx-dataonly:5.8.1.1067-0029 /bin/bash
 
 docker run --rm -it --name ebx-5.8.1.1067-0029 mickaelgermemont/ebx:5.8.1.1067-0029 /bin/bash

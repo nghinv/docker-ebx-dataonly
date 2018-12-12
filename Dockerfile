@@ -2,13 +2,13 @@ FROM tomcat:9.0.12-jre11
 
 ENV EBX_DL_USER support
 ENV EBX_DL_PASSWORD on@ebx67
-ARG EBX_VERSION
+ARG EBXFILE
 
 ###
 ### download EBX
 
 RUN mkdir -p /data/ebx \
-  && curl -k -SL -u "${EBX_DL_USER}:${EBX_DL_PASSWORD}" -o /data/ebx/ebx.zip https://dl.orchestranetworks.com/restricted/download/${EBX_VERSION}.zip \
+  && curl -k -SL -u "${EBX_DL_USER}:${EBX_DL_PASSWORD}" -o /data/ebx/ebx.zip https://dl.orchestranetworks.com/restricted/download/${EBXFILE} \
   && unzip -q -d /data/ebx/ /data/ebx/ebx.zip \
   && rm -rf /data/ebx/ebx.zip
 

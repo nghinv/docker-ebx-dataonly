@@ -56,3 +56,13 @@ ls -altr ~/5.8.1.1067-0029
 ```
 docker cp ebx-5.8.1.1067-0029:/data/ebx/ebx.software/files/ebx.properties .
 ```
+
+### 3 connect to image
+
+```
+docker run --rm -it --name ebx mickaelgermemont/ebx:5.8.1.1067-0029 /bin/bash
+```
+
+```
+docker run --rm -it --name ebx mickaelgermemont/ebx:5.9.0.1099-0003 /bin/bash
+```

@@ -66,3 +66,11 @@ docker run --rm -it --name ebx mickaelgermemont/ebx:5.8.1.1067-0029 /bin/bash
 ```
 docker run --rm -it --name ebx mickaelgermemont/ebx:5.9.0.1099-0003 /bin/bash
 ```
+
+### 4 retrieve open source libs
+
+```
+docker run --rm -it --name ebx mickaelgermemont/ebx:5.9.0.1099-0003 /bin/bash
+docker cp ebx:/data/ebx/_OSS-Src ~/EBXDevTools/5.9.0.1099-0003/
+docker cp ebx:/data/ebx/_OSS-Src ~/EBXDevTools/5.8.1.1067-0029/
+```
